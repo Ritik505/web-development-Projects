@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <fieldset>
+        <legend style="font-size: 30PX;">CALCULATOR</legend>
+    <form>
+        <label class="f"><center><b>FIRST NUMBER</b></center></label>
+        <center><input type="number" id="c1"></center><br>
+        <label class="f"><center><b>SECOND NUMBER</b></center></label>
+        <center><input type="number" id="c2"><br>
+        <input type="button" value="+" class="operator" onclick="add()">
+        <input type="button" value="-" class="operator" onclick="subtract()">
+        <input type="button" value="×" class="operator" onclick="multiply()">
+        <input type="button" value="/" class="operator" onclick="divide()"><br>
+        <label class="f"><center><b>RESULT</b></center></label>
+        <center><input type="number" id="c3"><br>
+            <button id="clear">
+                <a href="index.html">CLEAR ALL</a>
+              </button>
+    </form>
+    </fieldset>
+    
+    <script src="cal.js"></script>
+</body>
+</html>
