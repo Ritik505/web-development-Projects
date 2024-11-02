@@ -1,0 +1,47 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background: url('https://media.istockphoto.com/photos/cloud-typologies-night-sky-milky-way-picture-id879837540?b=1&k=20&m=879837540&s=170667a&w=0&h=HtsD-vPoq7Uh7ifaARfetya2uP7VDf7A0VLNkvm8ySI=') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    cursor: crosshair;
+  }
+  
+  .laser {
+    position: absolute;
+    width: 2px;
+    height: 100vh;
+    background-color: red;
+    transform-origin: bottom center;
+    animation: shoot 0.5s linear forwards;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 7px;
+    height: 5px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+  }
+  
+  @keyframes explode {
+    from {
+      transform: scale(3);
+      opacity: 5;
+    }
+    to {
+      transform: translate(var(--x), var(--y)) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes shoot {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+  
