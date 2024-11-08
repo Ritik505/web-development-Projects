@@ -1,0 +1,108 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: black;
+}
+
+#time {
+    display: flex;
+    gap: 30px;
+    color: #fff;
+}
+
+.circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle svg {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    transform: rotate(-90deg);
+}
+
+.circle svg circle:first-child {
+    fill: none;
+    stroke: #333;
+    stroke-width: 5;
+}
+
+.circle svg circle:last-child {
+    fill: none;
+    stroke: var(--color);
+    stroke-width: 5;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    transition: stroke-dashoffset 0.5s linear;
+}
+
+#hours, #minutes, #seconds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hrs, #mins, #secs {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.time-text {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+.ap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.dots {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color);
+    border-radius: 50%;
+    top: 0;
+}
+
+.h_dot {
+    animation: rotate-hour 43200s linear infinite;
+}
+
+.m_dot {
+    animation: rotate-minute 3600s linear infinite;
+}
+
+.s_dot {
+    animation: rotate-second 60s linear infinite;
+}
+
+@keyframes rotate-hour {
+    from { transform: rotate(0deg) translateX(70px); }
+    to { transform: rotate(360deg) translateX(70px); }
+}
+
+@keyframes rotate-minute {
+    from { transform: rotate(0deg) translateX(70px); }
+    to { transform: rotate(360deg) translateX(70px); }
+}
+
+@keyframes rotate-second {
+    from { transform: rotate(0deg) translateX(70px); }
+    to { transform: rotate(360deg) translateX(70px); }
+}
+
+
