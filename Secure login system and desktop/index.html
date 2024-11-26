@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Welcome to Secure Login System</h2>
+        <p>You have up to 3 attempts to enter the correct password.</p>
+
+        <form id="login-form">
+            <div class="input-group">
+                <label for="password">Enter your password:</label>
+                <div class="password-container">
+                    <input type="password" id="password" required />
+                    <i id="toggle-eye" class="fas fa-eye" onclick="togglePasswordVisibility()"></i>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+            <button type="button" id="try-again-btn" onclick="resetForm()" style="display: none;">Try Again</button>
+            <p id="error-message"></p>
+        </form>
+
+        <p id="attempt-info"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
