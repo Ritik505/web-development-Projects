@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .large-cursor {
+            cursor: url('https://cdn.custom-cursor.com/db/cursor/arrow2172.png'), auto;
+        }
+        body{
+            background-image: url(https://i.pinimg.com/736x/76/da/26/76da26ed6c171b1729bb39539be50f09.jpg);
+            background-position: center;
+            overflow: hidden;
+            height: 100vh;
+            background-size: cover;
+
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <img id="AA" src="batman.back.jpg" 
+             onmouseover="change1()" 
+             onmouseout="change2()"
+             onmousemove="changeCursor(true)">
+    
+    </center>
+
+    <script>
+        function change1() {
+            document.getElementById('AA').src = "batman.front.jpg";
+        }
+
+        function change2() {
+            document.getElementById('AA').src = "batman.back.jpg";
+        }
+
+        function changeCursor(hovering) {
+            if (hovering) {
+                document.body.style.cursor = 'url(https://cdn.custom-cursor.com/db/cursor/arrow2172.png), auto';
+            } else {
+                document.body.style.cursor = 'default';
+            }
+        }
+    </script>
+</body>
+</html>
