@@ -1,0 +1,51 @@
+body{
+    background-color: black;
+}
+h1{
+    color:rgb(139, 134, 27);
+    text-decoration: wavy;
+}
+h3{
+    color: aqua;
+}
+
+#submit{
+    border-radius: 20%;
+    font-style: strong;
+    background-color: green;
+    text-shadow: 2cap;
+    margin-bottom: 2%;
+}
+
+#again{
+    border-radius: 20%;
+    font-style: strong;
+    background-color: red;
+    text-shadow: 2cap;
+    margin-bottom: 2%;
+}
+
+h2{
+    color: bisque;
+}
+
+#message{
+    color: red;
+    font-size: 100%;
+    margin-bottom: 2%;
+}
+
+#chances {
+    color: antiquewhite;
+    background-color: #333;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 16px;
+    text-align: center;
+}
+
