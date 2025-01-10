@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range Slider with Percentage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            transition: background-color 0.5s;
+        }
+
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 300px;
+            height: 8px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: background 0.3s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #4caf50;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        input[type="range"]:hover::-webkit-slider-thumb {
+            background: #45a049;
+        }
+
+        .percentage {
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <input type="range" id="slider" min="0" max="100" value="50">
+        <div class="percentage" id="percentage">50%</div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const percentage = document.getElementById('percentage');
+        const body = document.body;
+
+        slider.addEventListener('input', () => {
+            const value = slider.value;
+            percentage.textContent = `${value}%`;
+
+            // Change background color based on the slider value
+            const colorValue = 255 - (value * 2.55);
+            body.style.backgroundColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+        });
+    </script>
+</body>
+</html>
