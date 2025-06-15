@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    font-family: 'Arial', sans-serif;
+}
+
+.game-container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.score-board {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.score-board span {
+    margin: 0 20px;
+}
+
+#gameCanvas {
+    background-color: #000;
+    border: 3px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.controls {
+    margin-top: 20px;
+    color: white;
+}
+
+.controls button {
+    background: #00ff00;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.controls button:hover {
+    background: #00cc00;
+    transform: scale(1.05);
+}
+
+.speed-control {
+    margin-top: 15px;
+    color: white;
+}
+
+.speed-control label {
+    margin-right: 10px;
+}
+
+.speed-control input {
+    width: 150px;
+    margin: 0 10px;
+} 
