@@ -1,5 +1,4 @@
 const questions = [
-  
   {
     question: "What does CSS stand for?",
     options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets", "Control Style Sheets"],
@@ -25,7 +24,6 @@ const questions = [
     options: ["Number", "String", "Boolean", "Element"],
     answer: 3
   },
-  
   {
     question: "What is the output of console.log(typeof null)?",
     options: ["null", "undefined", "object", "string"],
@@ -60,49 +58,67 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let score = 0;
+let timer;
+let timeLeft = 15;
+
+const correctSound = new Audio("correct.mp3");
+const wrongSound = new Audio("wrong.mp3");
+const nextSound = new Audio("next.mp3");
 
 function showQuestion() {
   const questionElement = document.getElementById("question");
   const optionsElement = document.getElementById("options");
+  const feedbackElement = document.getElementById("feedback");
   const currentQuestion = questions[currentQuestionIndex];
 
-  questionElement.textContent = `Question ${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+  questionElement.textContent = `Q${currentQuestionIndex + 1}: ${currentQuestion.question}`;
   optionsElement.innerHTML = "";
+  feedbackElement.textContent = "";
+  document.getElementById("next-btn").style.display = "none";
 
   currentQuestion.options.forEach((option, index) => {
     const li = document.createElement("li");
     li.textContent = option;
-    li.onclick = () => checkAnswer(index, li); 
+    li.classList.add("option");
+    li.onclick = () => checkAnswer(index, li);
     optionsElement.appendChild(li);
   });
+
+  updateProgressBar();
+  startTimer();
 }
 
-function checkAnswer(selectedOption, optionElement) {
+function checkAnswer(selectedIndex, li) {
+  clearInterval(timer);
   const currentQuestion = questions[currentQuestionIndex];
-  const feedbackElement = document.getElementById("feedback");
-
-  // Disable all options after selection
   const options = document.querySelectorAll("#options li");
-  options.forEach(option => option.style.pointerEvents = "none");  
+  options.forEach(option => option.style.pointerEvents = "none");
 
-  if (selectedOption === currentQuestion.answer) {
+  const feedback = document.getElementById("feedback");
+
+  if (selectedIndex === currentQuestion.answer) {
+    li.style.backgroundColor = "green";
+    correctSound.play();
+    feedback.textContent = "Correct!";
+    feedback.style.color = "lime";
     score++;
-    feedbackElement.textContent = "Correct!";
-    feedbackElement.style.color = "green";
   } else {
-    feedbackElement.textContent = `Wrong! The correct answer is: ${currentQuestion.options[currentQuestion.answer]}`;
-    feedbackElement.style.color = "red";
+    li.style.backgroundColor = "red";
+    wrongSound.play();
+    feedback.textContent = `Wrong! Correct: ${currentQuestion.options[currentQuestion.answer]}`;
+    feedback.style.color = "red";
+    options[currentQuestion.answer].style.backgroundColor = "green";
   }
 
   document.getElementById("next-btn").style.display = "block";
 }
 
 function nextQuestion() {
+  nextSound.play();
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     showQuestion();
-    document.getElementById("next-btn").style.display = "none";
-    document.getElementById("feedback").textContent = ""; 
+  } else {
     showScore();
   }
 }
@@ -111,6 +127,7 @@ function showScore() {
   document.getElementById("question-container").style.display = "none";
   document.getElementById("score-container").style.display = "block";
   document.getElementById("score").textContent = `Your Score: ${score}/${questions.length}`;
+  document.getElementById("timer").style.display = "none";
 }
 
 function restartQuiz() {
@@ -118,12 +135,48 @@ function restartQuiz() {
   score = 0;
   document.getElementById("score-container").style.display = "none";
   document.getElementById("question-container").style.display = "block";
+  document.getElementById("timer").style.display = "block";
   showQuestion();
-  document.getElementById("next-btn").style.display = "none";
-  document.getElementById("feedback").textContent = ""; 
+}
+
+function startTimer() {
+  timeLeft = 15;
+  updateTimer();
+  timer = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      autoWrong();
+    }
+  }, 1000);
+}
+
+function updateTimer() {
+  document.getElementById("timer").textContent = `⏳ Time Left: ${timeLeft}s`;
+}
+
+function autoWrong() {
+  const feedback = document.getElementById("feedback");
+  feedback.textContent = `⏱ Time's up! Correct: ${questions[currentQuestionIndex].options[questions[currentQuestionIndex].answer]}`;
+  feedback.style.color = "orange";
+
+  const options = document.querySelectorAll("#options li");
+  options.forEach((li, i) => {
+    li.style.pointerEvents = "none";
+    if (i === questions[currentQuestionIndex].answer) li.style.backgroundColor = "green";
+  });
+
+  document.getElementById("next-btn").style.display = "block";
+}
+
+function updateProgressBar() {
+  const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+  document.getElementById("progress-bar").style.width = `${progress}%`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("question-container").style.display = "block";
+  document.getElementById("score-container").style.display = "none";
   showQuestion();
 });
