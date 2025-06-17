@@ -1,51 +1,149 @@
-body{
-    background-color: black;
-}
-h1{
-    color:rgb(139, 134, 27);
-    text-decoration: wavy;
-}
-h3{
-    color: aqua;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #000000, #1f1f1f);
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
 }
 
-#submit{
-    border-radius: 20%;
-    font-style: strong;
-    background-color: green;
-    text-shadow: 2cap;
-    margin-bottom: 2%;
+h1 {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffaa00;
+    font-size: 3em;
+    margin-top: 20px;
+    animation: glowPulse 2s infinite ease-in-out;
 }
 
-#again{
-    border-radius: 20%;
-    font-style: strong;
-    background-color: red;
-    text-shadow: 2cap;
-    margin-bottom: 2%;
+h2 {
+    color: #f0e68c;
+    font-size: 1.8em;
+    text-shadow: 0 0 5px #f0e68c;
 }
 
-h2{
-    color: bisque;
+h3 {
+    color: #00ffff;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px #00ffff;
 }
 
-#message{
-    color: red;
-    font-size: 100%;
-    margin-bottom: 2%;
+#submit, #again {
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 30px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#submit::before, #again::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left 0.4s;
+    z-index: -1;
+}
+
+#submit:hover::before, #again:hover::before {
+    left: 100%;
+}
+
+#submit {
+    background: linear-gradient(to right, #28a745, #218838);
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
+}
+
+#submit:hover {
+    background: linear-gradient(to right, #34d058, #1c7c30);
+    transform: scale(1.05);
+}
+
+#again {
+    background: linear-gradient(to right, #dc3545, #c82333);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+#again:hover {
+    background: linear-gradient(to right, #ff4c61, #a81c24);
+    transform: scale(1.05);
+}
+
+#message {
+    color: #ff5555;
+    font-size: 1.2em;
+    margin: 20px;
+    text-shadow: 0 0 8px #ff0000;
 }
 
 #chances {
-    color: antiquewhite;
-    background-color: #333;
+    color: #fff;
+    background: #333;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+    font-size: 1.5em;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
-    font-size: 16px;
-    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+#chances:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #fff;
+}
+
+.container-glass {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 600px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.icon-animated {
+    display: inline-block;
+    animation: floatIcon 3s ease-in-out infinite;
+    font-size: 2em;
+    margin: 10px;
+    color: #ffaa00;
+    text-shadow: 0 0 10px #ffaa00;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffaa00;
+    }
+    50% {
+        text-shadow: 0 0 20px #ffcc00, 0 0 30px #ffaa00;
+    }
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
