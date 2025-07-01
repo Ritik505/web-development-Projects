@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: #0D0D0D;
+  color: #ffffff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0D0D0D 0%, #1a1a1a 100%);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00FFC6, #FF007A);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #FF007A, #00FFC6);
+}
+
+.neon-glow {
+  box-shadow: 0 0 20px rgba(0, 255, 198, 0.3);
+}
+
+.neon-glow-pink {
+  box-shadow: 0 0 20px rgba(255, 0, 122, 0.3);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px currentColor;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  
+@media (max-width: 768px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+} 

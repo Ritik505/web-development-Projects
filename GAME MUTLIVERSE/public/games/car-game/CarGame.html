@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crash Escape - The Car Game</title>
+    <link rel="stylesheet" href="CarGame.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div class="hud">
+            <div class="score-container">
+                <div id="score">Score: 0</div>
+                <div id="highScore">High Score: 0</div>
+            </div>
+            <div class="boost-container">
+                <div id="boostBar">
+                    <div id="boostFill"></div>
+                </div>
+                <div id="boostText">BOOST</div>
+            </div>
+            <div class="speed-container">
+                <div id="speed">Speed: 7</div>
+            </div>
+        </div>
+        <div id="gameOver" class="game-over hidden">
+            <h2>Game Over!</h2>
+            <p>Press SPACE to restart</p>
+        </div>
+        <div id="startScreen" class="start-screen">
+            <h1>Crash Escape</h1>
+            <p>Use A and D to move</p>
+            <p>SPACE for boost</p>
+            <button id="startButton">Start Game</button>
+        </div>
+    </div>
+    <script src="CarGame.js"></script>
+</body>
+</html>

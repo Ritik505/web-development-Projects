@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1a2837, #1b222a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+  overflow: auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #4caf50, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px rgba(255, 255, 255, 0.7);
+  }
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  padding: 25px 35px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#timer {
+  font-size: 20px;
+  color: #ffd700;
+  margin-bottom: 15px;
+  font-weight: bold;
+  animation: pulse 1s infinite;
+  text-shadow: 0 0 5px #000;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+#progress-wrapper {
+  width: 100%;
+  max-width: 400px;
+  height: 10px;
+  background-color: #444;
+  margin: 0 auto 25px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: limegreen;
+  transition: width 0.5s ease-in-out;
+}
+
+#question-container {
+  margin-bottom: 20px;
+}
+
+#question {
+  font-size: 1.8rem; 
+  margin-bottom: 20px;
+  color: #e3e3e3;
+}
+
+#options {
+  list-style: none;
+  padding: 0;
+}
+
+#options li {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.2rem;
+}
+
+#options li:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#options li:active {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#feedback {
+  font-size: 1.1rem;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+#next-btn {
+  background: #4caf50;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  margin-top: 25px;
+}
+
+#next-btn:hover {
+  background: #45a049;
+  transform: scale(1.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#next-btn:active {
+  background: #3e8e41;
+  transform: scale(1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#score-container {
+  display: none;
+  animation: fadeIn 1s ease;
+}
+
+#score-container h2 {
+  font-size: 2rem;
+  margin: 20px 0;
+  color: #f9f9f9;
+}
+
+#score-container button {
+  background: #007bff;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#score-container button:hover {
+  background: #0056b3;
+  transform: scale(1.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#score-container button:active {
+  background: #004494;
+  transform: scale(1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 25px;
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #question {
+    font-size: 1.4rem; 
+  }
+
+  #options li {
+    padding: 15px;
+    font-size: 1.1rem; 
+  }
+
+  #next-btn,
+  #score-container button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}

@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Rajdhani', sans-serif;
+  }
+}
+
+@layer components {
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(0, 255, 198, 0.3);
+  }
+  
+  .neon-glow-pink {
+    box-shadow: 0 0 20px rgba(255, 0, 122, 0.3);
+  }
+  
+  .neon-text {
+    text-shadow: 0 0 10px currentColor;
+  }
+} 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space War</title>
+    <link rel="stylesheet" href="SpaceWar.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- START SCREEN -->
+        <div id="startScreen" class="game-overlay">
+            <h1>Space War</h1>
+            <p>Use Arrow Keys to Move & Aim<br>Press Spacebar to Shoot</p>
+            <button id="startButton">Start Game</button>
+        </div>
+
+        <!-- HUD - CORRECTED: Added id="hud" -->
+        <div id="hud" class="hud hidden">
+            <div class="lives">Lives: <span id="lives">3</span></div>
+            <div class="level-indicator">Level: <span id="level">1</span></div>
+            <div class="score">Score: <span id="score">0</span></div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- GAME OVER SCREEN -->
+        <div id="gameOver" class="game-overlay hidden">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <button id="restartButton">Play Again</button>
+        </div>
+    </div>
+    <script src="SpaceWar.js"></script>
+</body>
+</html>
