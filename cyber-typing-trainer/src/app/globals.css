@@ -11,7 +11,7 @@ body {
 }
 
 .cyber-heading {
-    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    font-family: 'Orbitron', sans-serif; 
     font-size: 3rem;
     text-align: center;
     color: #e8d1d1;
@@ -25,7 +25,7 @@ body {
     animation: glowPulse 2s infinite alternate;
 }
 
-/* Glow animation */
+
 @keyframes glowPulse {
     from {
         text-shadow:
@@ -43,8 +43,6 @@ body {
     }
 }
 
-
-/* Dark glass container */
 .container {
     padding: 20px;
     min-height: 100vh;
@@ -54,7 +52,6 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Typing screen */
 .screen {
     width: 80%;
     min-height: 120px;
@@ -89,7 +86,6 @@ body {
     animation: blink 0.8s infinite alternate;
 }
 
-/* Keyboard styles */
 .keyboard {
     display: inline-block;
     margin: 20px auto;
@@ -135,7 +131,6 @@ body {
     box-shadow: 0 0 20px #00ffc6;
 }
 
-/* Results panel */
 .results {
     margin-top: 25px;
     font-size: 20px;
@@ -152,7 +147,6 @@ body {
     box-shadow: 0 0 12px rgba(0, 255, 198, 0.3);
 }
 
-/* Instructions text */
 .instructions {
     margin-top: 20px;
     font-size: 16px;
@@ -160,7 +154,6 @@ body {
     font-style: italic;
 }
 
-/* Glowing progress bar */
 .progress-container {
     width: 80%;
     height: 10px;
@@ -182,7 +175,6 @@ body {
     100% { filter: drop-shadow(0 0 5px #00ffc6); }
 }
 
-/* Animations */
 @keyframes blink {
     from { opacity: 1; }
     to { opacity: 0.5; }
