@@ -1,0 +1,197 @@
+body { 
+    font-family: 'Poppins', sans-serif;
+    background-image: url(https://th.bing.com/th/id/OIP.zM8qU_7P_bcGz0jOzqQ_DAHaDJ?rs=1&pid=ImgDetMain);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #f0f0f0;
+}
+
+.cyber-heading {
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    font-size: 3rem;
+    text-align: center;
+    color: #e8d1d1;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #00ffc6,
+        0 0 40px #00ffc6;
+    animation: glowPulse 2s infinite alternate;
+}
+
+/* Glow animation */
+@keyframes glowPulse {
+    from {
+        text-shadow:
+            0 0 5px #ff00ff,
+            0 0 10px #ff00ff,
+            0 0 20px #00ffc6,
+            0 0 40px #00ffc6;
+    }
+    to {
+        text-shadow:
+            0 0 10px #00ffc6,
+            0 0 20px #00ffc6,
+            0 0 30px #ff00ff,
+            0 0 60px #ff00ff;
+    }
+}
+
+
+/* Dark glass container */
+.container {
+    padding: 20px;
+    min-height: 100vh;
+    backdrop-filter: blur(1px);
+    border-left: 2px solid rgba(0, 255, 198, 0.2);
+    border-right: 2px solid rgba(0, 255, 198, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Typing screen */
+.screen {
+    width: 80%;
+    min-height: 120px;
+    margin: 20px auto;
+    border: 2px solid #00ffc6;
+    border-radius: 12px;
+    background-color: rgba(16, 11, 11, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0, 255, 198, 0.3);
+    font-size: 24px;
+    padding: 20px;
+    line-height: 1.5;
+    transition: 0.3s;
+}
+
+#promptDisplay span.correct {
+    color: #00ffc6;
+    font-weight: bold;
+}
+#promptDisplay span.incorrect {
+    color: #ff4c4c;
+    text-decoration: underline;
+    font-weight: bold;
+}
+#promptDisplay span.current {
+    background-color: #00ffc6;
+    color: black;
+    border-radius: 3px;
+    padding: 2px 4px;
+    animation: blink 0.8s infinite alternate;
+}
+
+/* Keyboard styles */
+.keyboard {
+    display: inline-block;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 15px;
+    border-radius: 22px;
+    box-shadow: 0 0 15px rgba(0, 255, 198, 0.3);
+    animation: fadeInUp 0.8s ease;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    margin: 5px;
+    border: 2px solid rgba(0, 255, 198, 0.4);
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    font-size: 16px;
+    font-weight: bold;
+    color: #00ffc6;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 8px rgba(0, 255, 198, 0.3);
+}
+.key.wide {
+    width: 120px;
+}
+.key:active,
+.key.pressed {
+    background-color: #00ffc6;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00ffc6;
+}
+
+/* Results panel */
+.results {
+    margin-top: 25px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    animation: fadeIn 1s ease;
+}
+.results p {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 198, 0.3);
+    box-shadow: 0 0 12px rgba(0, 255, 198, 0.3);
+}
+
+/* Instructions text */
+.instructions {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Glowing progress bar */
+.progress-container {
+    width: 80%;
+    height: 10px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00ffc6, #00bfa5, #00ffc6);
+    box-shadow: 0 0 15px #00ffc6;
+    animation: glowMove 1.5s infinite linear;
+}
+@keyframes glowMove {
+    0% { filter: drop-shadow(0 0 5px #00ffc6); }
+    50% { filter: drop-shadow(0 0 15px #00ffc6); }
+    100% { filter: drop-shadow(0 0 5px #00ffc6); }
+}
+
+/* Animations */
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.5; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
