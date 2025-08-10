@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -109,7 +108,6 @@ export default function Home() {
         }
     }, [typedChars, currentPrompt, testActive, startTime]);
 
-    // Timer effect
     useEffect(() => {
         let intervalId: NodeJS.Timeout;
         if (testActive && startTime) {
